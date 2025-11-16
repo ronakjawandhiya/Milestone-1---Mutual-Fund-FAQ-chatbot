@@ -1,0 +1,67 @@
+[
+  {
+    "question": "What is the expense ratio of ICICI Prudential ELSS Tax Saver Fund?",
+    "answer": "The expense ratio of ICICI Prudential ELSS Tax Saver Fund is subject to change as per SEBI regulations. As of the latest factsheet, the expense ratio is approximately 0.85% for the regular plan and 0.65% for the direct plan. Please refer to the latest factsheet for the most current information. Last updated from sources: ICICI Prudential AMC.",
+    "source": "https://www.icicipruamc.com/"
+  },
+  {
+    "question": "What is the lock-in period for ICICI Prudential ELSS Tax Saver Fund?",
+    "answer": "ICICI Prudential ELSS Tax Saver Fund has a mandatory lock-in period of 3 years as mandated by the Income Tax Act. This is the shortest lock-in period among all tax-saving instruments under Section 80C. The lock-in period applies to each installment/SIP separately. Last updated from sources: ICICI Prudential AMC.",
+    "source": "https://www.icicipruamc.com/"
+  },
+  {
+    "question": "What is the minimum SIP amount for ICICI Prudential schemes?",
+    "answer": "The minimum SIP amount for most ICICI Prudential mutual fund schemes is \u20b9500 per month. However, this may vary by scheme. For ICICI Prudential ELSS Tax Saver Fund, the minimum SIP amount is \u20b9500. Investors can choose weekly, monthly, quarterly, or annual SIP frequencies. Last updated from sources: ICICI Prudential AMC.",
+    "source": "https://www.icicipruamc.com/blob/downloads/Application-Forms/Common%20Application%20Form.pdf"
+  },
+  {
+    "question": "What is the exit load for ICICI Prudential Large Cap Fund?",
+    "answer": "ICICI Prudential Large Cap Fund charges an exit load of 1% if redeemed within 1 year from the date of allotment. No exit load is charged if units are redeemed after 1 year. The exit load is calculated on the applicable NAV and is deducted from the redemption proceeds. Last updated from sources: ICICI Prudential AMC.",
+    "source": "https://www.icicipruamc.com/"
+  },
+  {
+    "question": "What is the riskometer rating for ICICI Prudential Multi-Asset Fund?",
+    "answer": "ICICI Prudential Multi-Asset Fund has a 'Moderately High' riskometer rating as per the risk classification framework prescribed by AMFI. The fund invests across equity, debt, and gold, which helps in diversification but still carries significant market risk. Last updated from sources: ICICI Prudential AMC.",
+    "source": "https://www.icicipruamc.com/"
+  },
+  {
+    "question": "How to download capital gains statement from ICICI Prudential?",
+    "answer": "To download capital gains statement from ICICI Prudential: 1) Log in to your account on the ICICI Prudential website or mobile app, 2) Navigate to 'Transaction History' or 'Portfolio', 3) Select the relevant financial year, 4) Choose 'Capital Gains Statement' option, 5) Download the statement in PDF format. You can also request it via email by contacting customer care. Last updated from sources: ICICI Prudential AMC.",
+    "source": "https://www.icicipruamc.com/"
+  },
+  {
+    "question": "What is the benchmark for ICICI Prudential Bluechip Fund?",
+    "answer": "ICICI Prudential Bluechip Fund is benchmarked against the NIFTY 100 Total Return Index. The fund aims to provide returns that closely correspond to the total return of the NIFTY 100 Index, subject to tracking errors. This benchmark represents the performance of the top 100 companies listed on the NSE. Last updated from sources: ICICI Prudential AMC.",
+    "source": "https://www.icicipruamc.com/"
+  },
+  {
+    "question": "What is the minimum investment amount for ICICI Prudential Focused Equity Fund?",
+    "answer": "The minimum investment amount for ICICI Prudential Focused Equity Fund is \u20b95,000 for lump sum investments and \u20b9500 for SIP investments. This is the minimum amount required to initiate an investment in the scheme. Additional investments can be made in multiples of Re 1. Last updated from sources: ICICI Prudential AMC.",
+    "source": "https://www.icicipruamc.com/"
+  },
+  {
+    "question": "What is exit load in mutual funds?",
+    "answer": "Exit load is a charge levied by the Asset Management Company (AMC) when an investor redeems or withdraws units of a mutual fund before a specified period. It is usually a percentage of the NAV and varies across schemes. The purpose is to discourage premature withdrawals and cover administrative costs. Last updated from sources: AMFI India",
+    "source": "https://portal.amfiindia.com/spages/129.pdf"
+  },
+  {
+    "question": "What is expense ratio in mutual funds?",
+    "answer": "Expense ratio represents the annual fee charged by the fund house to manage your investment. It includes management fees, administrative costs, and other operating expenses expressed as a percentage of average assets under management (AUM). As per SEBI regulations, expense ratio for equity funds is capped at 2.25% and for debt funds at 2.00%. Last updated from sources: SEBI",
+    "source": "https://portal.amfiindia.com/spages/712.pdf"
+  },
+  {
+    "question": "What is the minimum SIP amount for mutual funds?",
+    "answer": "The minimum SIP amount varies by AMC and scheme, but typically starts as low as \u20b9500 per month. Many AMCs offer flexibility to increase or decrease SIP amounts based on investor needs. SIP allows investors to invest fixed amounts regularly, enabling rupee cost averaging and disciplined investing. Last updated from sources: AMFI India",
+    "source": "https://portal.amfiindia.com/spages/129.pdf"
+  },
+  {
+    "question": "What is lock-in period in mutual funds?",
+    "answer": "Lock-in period refers to the duration during which invested money cannot be withdrawn. ELSS (Equity Linked Savings Scheme) funds have a mandatory lock-in of 3 years. Tax saving fixed deposits have 5-year lock-in. Other mutual fund schemes generally don't have lock-in periods except for close-ended funds which have lock-in until maturity. Last updated from sources: SEBI",
+    "source": "https://portal.amfiindia.com/spages/8130.pdf"
+  },
+  {
+    "question": "What is capital gains statement in mutual funds?",
+    "answer": "Capital gains statement shows profits earned from selling mutual fund units. Short-term capital gains (STCG) apply for holdings less than 1 year for debt funds and less than 12 months for equity funds. Long-term capital gains (LTCG) apply for longer holdings. Equity funds have 10% LTCG tax (without indexation) exceeding \u20b91 lakh annually, while debt funds have 20% LTCG with indexation benefit. Last updated from sources: AMFI India",
+    "source": "https://portal.amfiindia.com/spages/129.pdf"
+  }
+]
