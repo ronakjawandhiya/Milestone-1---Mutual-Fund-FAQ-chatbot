@@ -20,7 +20,7 @@ A simple FAQ assistant that provides factual information about Mutual Funds from
    - Provides fast responses without real-time scraping
 
 2. **Data Serving**:
-   - Flask backend serves FAQ data via REST API
+   - Python HTTP server serves FAQ data via REST API
    - Frontend provides a clean interface for asking questions
    - Matches user questions to stored FAQ entries
 
@@ -46,12 +46,21 @@ A simple FAQ assistant that provides factual information about Mutual Funds from
 
 ### Running the Application
 
-1. Start the Flask server:
+#### Option 1: Traditional Web Interface
+1. Start the HTTP server:
    ```
-   python app.py
+   python static_server.py
    ```
 
-2. Open `index.html` in your web browser
+2. Open your web browser and navigate to `http://localhost:8000`
+
+#### Option 2: Streamlit Interface
+1. Run the Streamlit app:
+   ```
+   streamlit run streamlit_app.py
+   ```
+
+2. Open your web browser and navigate to `http://localhost:8501`
 
 3. Ask questions about mutual funds!
 
@@ -59,7 +68,6 @@ A simple FAQ assistant that provides factual information about Mutual Funds from
 
 - `GET /faq?question={your_question}` - Get FAQ answer for a question
 - `GET /topics` - Get list of available topics
-- `POST /refresh-data` - Refresh FAQ data from official sources
 - `GET /health` - Health check endpoint
 
 ## Example Questions
@@ -77,6 +85,17 @@ A simple FAQ assistant that provides factual information about Mutual Funds from
 
 - [AMFI India](https://www.amfiindia.com/)
 - [SEBI India](https://www.sebi.gov.in/)
+
+## Deployment Options
+
+### Streamlit Community Cloud
+To deploy on Streamlit Community Cloud:
+1. Push this code to a GitHub repository
+2. Connect your GitHub repository to Streamlit Community Cloud
+3. Deploy the `streamlit_app.py` file
+
+### Local Deployment
+The application can be run locally using either the traditional web interface or the Streamlit interface as described above.
 
 ## Note
 
