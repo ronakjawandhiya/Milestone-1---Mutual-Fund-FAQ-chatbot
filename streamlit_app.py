@@ -82,7 +82,7 @@ st.markdown("""
     .chat-container {
         display: flex;
         flex-direction: column;
-        height: 60vh;
+        max-height: 500px;
         overflow-y: auto;
         padding: 1rem;
         background-color: white;
@@ -141,14 +141,12 @@ st.markdown("""
         border-left: 5px solid #ffc107;
         margin-top: 2rem;
     }
-    .input-container {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
+    .response-container {
         background-color: white;
-        padding: 1rem;
-        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        padding: 1.5rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-top: 1rem;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -164,17 +162,8 @@ if 'chat_history' not in st.session_state:
 col1, col2 = st.columns([3, 1])
 
 with col1:
-    # Chat container
-    st.markdown("<div class='chat-container' id='chat-container'>", unsafe_allow_html=True)
-    
-    # Display chat history
-    for role, content in st.session_state.chat_history:
-        if role == "user":
-            st.markdown(f"<div class='message user-message'><strong>You:</strong><br>{content}</div>", unsafe_allow_html=True)
-        else:
-            st.markdown(f"<div class='message assistant-message'><strong>Assistant:</strong><br><div class='answer-text'>{content['answer']}</div><br><a href='{content['source']}' class='source-link' target='_blank'>🔗 Source: {content['source']}</a></div>", unsafe_allow_html=True)
-    
-    st.markdown("</div>", unsafe_allow_html=True)
+    # User input
+    user_question = st.text_input("Ask a question about mutual funds:", placeholder="e.g., What is the expense ratio of ICICI Prudential ELSS Tax Saver Fund?")
     
     # Example questions
     st.markdown("### 💡 Example Questions")
@@ -195,16 +184,34 @@ with col1:
     for i, question in enumerate(example_questions):
         with cols[i % 4]:
             if st.button(question, key=f"example_{i}", use_container_width=True):
-                # Find relevant FAQ
-                result = find_relevant_faq(question)
-                
-                # Add to chat history
-                st.session_state.chat_history.append(("user", question))
-                st.session_state.chat_history.append(("assistant", result))
-                
-                # Rerun to update the UI
-                st.rerun()
+                user_question = question
     st.markdown("</div>", unsafe_allow_html=True)
+    
+    # Process the question if submitted
+    if user_question:
+        # Find relevant FAQ
+        result = find_relevant_faq(user_question)
+        
+        # Add to chat history
+        st.session_state.chat_history.append(("user", user_question))
+        st.session_state.chat_history.append(("assistant", result))
+    
+    # Display current response if there's a question
+    if user_question:
+        result = find_relevant_faq(user_question)
+        st.markdown("### 📤 Response")
+        st.markdown(f"<div class='response-container'><h3>{result['question']}</h3><div class='answer-text'>{result['answer']}</div><br><a href='{result['source']}' class='source-link' target='_blank'>🔗 Source: {result['source']}</a></div>", unsafe_allow_html=True)
+    
+    # Display chat history
+    if st.session_state.chat_history:
+        st.markdown("### 💬 Chat History")
+        st.markdown("<div class='chat-container'>", unsafe_allow_html=True)
+        for role, content in st.session_state.chat_history[-6:]:  # Show last 3 exchanges
+            if role == "user":
+                st.markdown(f"<div class='message user-message'><strong>You:</strong><br>{content}</div>", unsafe_allow_html=True)
+            else:
+                st.markdown(f"<div class='message assistant-message'><strong>Assistant:</strong><br><div class='answer-text'>{content['answer']}</div><br><a href='{content['source']}' class='source-link' target='_blank'>🔗 Source: {content['source']}</a></div>", unsafe_allow_html=True)
+        st.markdown("</div>", unsafe_allow_html=True)
 
 with col2:
     # Sidebar content
@@ -231,29 +238,6 @@ with col2:
     st.markdown("---")
     st.markdown("### 📊 System Status")
     st.success(f"FAQ Database: {len(faq_data)} entries loaded")
-
-# Input container at the bottom
-with st.container():
-    st.markdown("<div class='input-container'>", unsafe_allow_html=True)
-    
-    # Create a form for the input
-    with st.form(key='question_form', clear_on_submit=True):
-        user_question = st.text_input("Ask a question about mutual funds:", placeholder="e.g., What is the expense ratio of ICICI Prudential ELSS Tax Saver Fund?", label_visibility="collapsed")
-        submit_button = st.form_submit_button(label='Send', use_container_width=True)
-        
-        # Process the question if submitted
-        if submit_button and user_question:
-            # Find relevant FAQ
-            result = find_relevant_faq(user_question)
-            
-            # Add to chat history
-            st.session_state.chat_history.append(("user", user_question))
-            st.session_state.chat_history.append(("assistant", result))
-            
-            # Rerun to update the UI
-            st.rerun()
-    
-    st.markdown("</div>", unsafe_allow_html=True)
 
 # Disclaimer
 st.markdown("<div class='disclaimer'><h4>⚠️ Disclaimer</h4><p>This assistant provides factual information about mutual funds based on official sources. It does not provide investment advice. For personalized investment recommendations, please consult a certified financial advisor.</p></div>", unsafe_allow_html=True)
