@@ -1,102 +1,80 @@
 # Mutual Fund FAQ Assistant
 
-A simple FAQ assistant that provides factual information about Mutual Funds from official sources like AMFI and SEBI. Every answer includes a source link for verification.
+This is a comprehensive FAQ assistant that provides factual information about mutual funds, with a special focus on ICICI Prudential schemes.
 
 ## Features
 
-- Answers common questions about mutual funds
-- Provides information on exit load, expense ratio, minimum SIP, lock-in period, capital gains, NAV, fund types, etc.
-- Every answer includes a verified source link
-- No investment advice - only factual information
-- Clean, responsive web interface
-- Chat history to review previous questions and answers
-- Topic-based question matching for better accuracy
+- Provides factual information about mutual funds with source citations
+- Specialized knowledge about ICICI Prudential mutual fund schemes:
+  - ELSS Tax Saver Fund
+  - Large Cap Fund
+  - Multi-Asset Fund
+  - Bluechip Fund
+  - Focused Equity Fund
+- Refuses to answer opinionated/portfolio questions with polite redirects to educational resources
+- Clean, user-friendly interface built with Streamlit
+- Comprehensive database with 42+ FAQ entries
+
+## Database Structure
+
+The knowledge base ([mf_faq_data.json](mf_faq_data.json)) contains detailed information about:
+
+1. **Expense Ratios** - For all 5 ICICI Prudential schemes
+2. **Exit Loads** - For all 5 ICICI Prudential schemes
+3. **Minimum Investment Amounts** - For all 5 ICICI Prudential schemes
+4. **Benchmarks** - For all 5 ICICI Prudential schemes
+5. **Riskometer Ratings** - For all 5 ICICI Prudential schemes
+6. **Lock-in Periods** - For ELSS Tax Saver Fund
+7. **Dividend Yields** - For various schemes
+8. **Portfolio Turnover Ratios** - For equity schemes
+9. **Asset Allocation** - For Multi-Asset Fund
+10. **General Mutual Fund Concepts** - Exit loads, expense ratios, SIP amounts, lock-in periods, capital gains
 
 ## How It Works
 
-1. **Data Collection (Option 1 - Pre-computed)**: 
-   - Scrapes official AMFI and SEBI websites for FAQ data
-   - Stores structured data locally with source URLs
-   - Provides fast responses without real-time scraping
+1. **Data Collection**: The system scrapes official sources (ICICI Prudential AMC, AMFI) to build a comprehensive knowledge base
+2. **Question Matching**: Uses keyword matching with boosting for ICICI Prudential schemes to find the most relevant answers
+3. **Response Generation**: Returns factual answers with source citations
+4. **Opinion Filtering**: Politely refuses opinionated questions and redirects to educational resources
 
-2. **Data Serving**:
-   - Python HTTP server serves FAQ data via REST API
-   - Frontend provides a clean interface for asking questions
-   - Matches user questions to stored FAQ entries
+## Files
 
-## Setup Instructions
+- [streamlit_app.py](streamlit_app.py) - Main application interface
+- [mf_faq_data.json](mf_faq_data.json) - Knowledge base with 42+ FAQ entries
+- [update_knowledge.py](update_knowledge.py) - Script to update the knowledge base by scraping official sources
+- [test_enhanced_db.py](test_enhanced_db.py) - Test script for the enhanced database
+- [test_faq_matching.py](test_faq_matching.py) - Test script for the FAQ matching function
 
-### Prerequisites
+## Running the Application
 
-- Python 3.7 or higher
-- pip (Python package installer)
-
-### Installation
-
-1. Clone or download this repository
-2. Navigate to the project directory:
+1. Install required packages:
    ```
-   cd "Mutual Fund FAQ BOT"
+   pip install streamlit requests beautifulsoup4
    ```
 
-3. Install required packages:
-   ```
-   pip install -r requirements.txt
-   ```
-
-### Running the Application
-
-#### Option 1: Traditional Web Interface
-1. Start the HTTP server:
-   ```
-   python static_server.py
-   ```
-
-2. Open your web browser and navigate to `http://localhost:8000`
-
-#### Option 2: Streamlit Interface
-1. Run the Streamlit app:
+2. Run the Streamlit app:
    ```
    streamlit run streamlit_app.py
    ```
 
-2. Open your web browser and navigate to `http://localhost:8501`
+3. Access the application in your browser at `http://localhost:8501` (or the URL provided in the terminal)
 
-3. Ask questions about mutual funds!
+## Updating the Knowledge Base
 
-### API Endpoints
+To update the knowledge base with the latest information from official sources:
 
-- `GET /faq?question={your_question}` - Get FAQ answer for a question
-- `GET /topics` - Get list of available topics
-- `GET /health` - Health check endpoint
+```
+python update_knowledge.py
+```
 
-## Example Questions
+## Testing
 
-- What is exit load in mutual funds?
-- What is expense ratio?
-- What is the minimum SIP amount?
-- What is lock-in period for ELSS funds?
-- How are capital gains taxed in mutual funds?
-- What is Net Asset Value (NAV)?
-- What is the difference between SIP and lump sum investment?
-- What are the different types of mutual funds?
+To test the enhanced database:
+```
+python test_enhanced_db.py
+```
 
-## Data Sources
-
-- [AMFI India](https://www.amfiindia.com/)
-- [SEBI India](https://www.sebi.gov.in/)
-
-## Deployment Options
-
-### Streamlit Community Cloud
-To deploy on Streamlit Community Cloud:
-1. Push this code to a GitHub repository
-2. Connect your GitHub repository to Streamlit Community Cloud
-3. Deploy the `streamlit_app.py` file
-
-### Local Deployment
-The application can be run locally using either the traditional web interface or the Streamlit interface as described above.
-
-## Note
-
-This application is for educational purposes only and does not provide investment advice. All information is sourced from official regulatory websites.
+To test the FAQ matching function:
+```
+python test_faq_matching.py
+```

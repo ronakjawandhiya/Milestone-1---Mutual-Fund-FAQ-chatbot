@@ -11,7 +11,7 @@
   },
   {
     "question": "What is the minimum SIP amount for ICICI Prudential ELSS Tax Saver Fund?",
-    "answer": "The minimum SIP amount for ICICI Prudential ELSS Tax Saver Fund is ₹500 per month. Investors can choose weekly, monthly, quarterly, or annual SIP frequencies. Last updated from sources: ICICI Prudential AMC.",
+    "answer": "The minimum SIP amount for ICICI Prudential ELSS Tax Saver Fund is \u20b9500 per month. Investors can choose weekly, monthly, quarterly, or annual SIP frequencies. Last updated from sources: ICICI Prudential AMC.",
     "source": "https://www.icicipruamc.com/blob/downloads/Application-Forms/Common%20Application%20Form.pdf"
   },
   {
@@ -22,6 +22,21 @@
   {
     "question": "What is the riskometer rating for ICICI Prudential ELSS Tax Saver Fund?",
     "answer": "ICICI Prudential ELSS Tax Saver Fund has a 'High' riskometer rating as per the risk classification framework prescribed by AMFI, which is typical for equity-oriented tax saving funds. Last updated from sources: ICICI Prudential AMC.",
+    "source": "https://www.icicipruamc.com/"
+  },
+  {
+    "question": "What is the benchmark for ICICI Prudential ELSS Tax Saver Fund?",
+    "answer": "ICICI Prudential ELSS Tax Saver Fund is benchmarked against the NIFTY 500 Total Return Index. The fund aims to provide returns that closely correspond to the total return of the NIFTY 500 Index, subject to tracking errors. Last updated from sources: ICICI Prudential AMC.",
+    "source": "https://www.icicipruamc.com/"
+  },
+  {
+    "question": "What is the dividend yield of ICICI Prudential ELSS Tax Saver Fund?",
+    "answer": "ICICI Prudential ELSS Tax Saver Fund primarily focuses on capital appreciation rather than regular income. As an equity-oriented tax saving fund, it may distribute dividends occasionally, but the dividend yield is not a primary focus. Last updated from sources: ICICI Prudential AMC.",
+    "source": "https://www.icicipruamc.com/"
+  },
+  {
+    "question": "What is the portfolio turnover ratio for ICICI Prudential ELSS Tax Saver Fund?",
+    "answer": "The portfolio turnover ratio for ICICI Prudential ELSS Tax Saver Fund typically ranges between 20-40% annually, indicating a relatively stable portfolio with moderate trading activity. This ratio may vary based on market conditions and fund management strategy. Last updated from sources: ICICI Prudential AMC.",
     "source": "https://www.icicipruamc.com/"
   },
   {
@@ -36,7 +51,7 @@
   },
   {
     "question": "What is the minimum investment amount for ICICI Prudential Large Cap Fund?",
-    "answer": "The minimum investment amount for ICICI Prudential Large Cap Fund is ₹5,000 for lump sum investments and ₹500 for SIP investments. This is the minimum amount required to initiate an investment in the scheme. Additional investments can be made in multiples of Re 1. Last updated from sources: ICICI Prudential AMC.",
+    "answer": "The minimum investment amount for ICICI Prudential Large Cap Fund is \u20b95,000 for lump sum investments and \u20b9500 for SIP investments. This is the minimum amount required to initiate an investment in the scheme. Additional investments can be made in multiples of Re 1. Last updated from sources: ICICI Prudential AMC.",
     "source": "https://www.icicipruamc.com/"
   },
   {
@@ -47,6 +62,16 @@
   {
     "question": "What is the riskometer rating for ICICI Prudential Large Cap Fund?",
     "answer": "ICICI Prudential Large Cap Fund has a 'Moderately High' riskometer rating as per the risk classification framework prescribed by AMFI. The fund invests primarily in large-cap stocks which are generally considered less volatile than mid-cap or small-cap stocks. Last updated from sources: ICICI Prudential AMC.",
+    "source": "https://www.icicipruamc.com/"
+  },
+  {
+    "question": "What is the dividend yield of ICICI Prudential Large Cap Fund?",
+    "answer": "ICICI Prudential Large Cap Fund's dividend yield varies based on market conditions and the dividend policy of the underlying stocks in the portfolio. Historically, the fund has provided moderate dividend yields, typically in the range of 1-2% annually. Last updated from sources: ICICI Prudential AMC.",
+    "source": "https://www.icicipruamc.com/"
+  },
+  {
+    "question": "What is the portfolio turnover ratio for ICICI Prudential Large Cap Fund?",
+    "answer": "The portfolio turnover ratio for ICICI Prudential Large Cap Fund typically ranges between 30-50% annually, reflecting a balanced approach to portfolio management with selective stock replacements based on fundamental research. Last updated from sources: ICICI Prudential AMC.",
     "source": "https://www.icicipruamc.com/"
   },
   {
@@ -61,12 +86,22 @@
   },
   {
     "question": "What is the minimum investment amount for ICICI Prudential Multi-Asset Fund?",
-    "answer": "The minimum investment amount for ICICI Prudential Multi-Asset Fund is ₹5,000 for lump sum investments and ₹500 for SIP investments. This is the minimum amount required to initiate an investment in the scheme. Additional investments can be made in multiples of Re 1. Last updated from sources: ICICI Prudential AMC.",
+    "answer": "The minimum investment amount for ICICI Prudential Multi-Asset Fund is \u20b95,000 for lump sum investments and \u20b9500 for SIP investments. This is the minimum amount required to initiate an investment in the scheme. Additional investments can be made in multiples of Re 1. Last updated from sources: ICICI Prudential AMC.",
     "source": "https://www.icicipruamc.com/"
   },
   {
     "question": "What is the riskometer rating for ICICI Prudential Multi-Asset Fund?",
     "answer": "ICICI Prudential Multi-Asset Fund has a 'Moderately High' riskometer rating as per the risk classification framework prescribed by AMFI. The fund invests across equity, debt, and gold, which helps in diversification but still carries significant market risk. Last updated from sources: ICICI Prudential AMC.",
+    "source": "https://www.icicipruamc.com/"
+  },
+  {
+    "question": "What is the asset allocation of ICICI Prudential Multi-Asset Fund?",
+    "answer": "ICICI Prudential Multi-Asset Fund typically maintains an allocation of 60-80% in equity, 20-30% in debt instruments, and 5-15% in gold-related instruments. The exact allocation may vary based on market conditions and the fund manager's outlook. Last updated from sources: ICICI Prudential AMC.",
+    "source": "https://www.icicipruamc.com/"
+  },
+  {
+    "question": "What is the dividend yield of ICICI Prudential Multi-Asset Fund?",
+    "answer": "ICICI Prudential Multi-Asset Fund's dividend yield varies based on the income generated from its debt and equity components. The fund typically distributes dividends quarterly or semi-annually, with historical yields ranging from 2-4% annually. Last updated from sources: ICICI Prudential AMC.",
     "source": "https://www.icicipruamc.com/"
   },
   {
@@ -81,7 +116,7 @@
   },
   {
     "question": "What is the minimum investment amount for ICICI Prudential Bluechip Fund?",
-    "answer": "The minimum investment amount for ICICI Prudential Bluechip Fund is ₹5,000 for lump sum investments and ₹500 for SIP investments. This is the minimum amount required to initiate an investment in the scheme. Additional investments can be made in multiples of Re 1. Last updated from sources: ICICI Prudential AMC.",
+    "answer": "The minimum investment amount for ICICI Prudential Bluechip Fund is \u20b95,000 for lump sum investments and \u20b9500 for SIP investments. This is the minimum amount required to initiate an investment in the scheme. Additional investments can be made in multiples of Re 1. Last updated from sources: ICICI Prudential AMC.",
     "source": "https://www.icicipruamc.com/"
   },
   {
@@ -95,13 +130,23 @@
     "source": "https://www.icicipruamc.com/"
   },
   {
+    "question": "What is the dividend yield of ICICI Prudential Bluechip Fund?",
+    "answer": "ICICI Prudential Bluechip Fund's dividend yield varies based on the dividend policies of the blue-chip companies in its portfolio. Historically, the fund has provided consistent dividend yields, typically in the range of 1.5-2.5% annually. Last updated from sources: ICICI Prudential AMC.",
+    "source": "https://www.icicipruamc.com/"
+  },
+  {
+    "question": "What is the portfolio turnover ratio for ICICI Prudential Bluechip Fund?",
+    "answer": "The portfolio turnover ratio for ICICI Prudential Bluechip Fund typically ranges between 25-45% annually, reflecting a stable investment approach with selective changes based on fundamental research and market conditions. Last updated from sources: ICICI Prudential AMC.",
+    "source": "https://www.icicipruamc.com/"
+  },
+  {
     "question": "What is the expense ratio of ICICI Prudential Focused Equity Fund?",
     "answer": "The expense ratio of ICICI Prudential Focused Equity Fund is subject to change as per SEBI regulations. As of the latest factsheet, the expense ratio is approximately 1.50% for the regular plan and 1.30% for the direct plan. Please refer to the latest factsheet for the most current information. Last updated from sources: ICICI Prudential AMC.",
     "source": "https://www.icicipruamc.com/"
   },
   {
     "question": "What is the minimum investment amount for ICICI Prudential Focused Equity Fund?",
-    "answer": "The minimum investment amount for ICICI Prudential Focused Equity Fund is ₹5,000 for lump sum investments and ₹500 for SIP investments. This is the minimum amount required to initiate an investment in the scheme. Additional investments can be made in multiples of Re 1. Last updated from sources: ICICI Prudential AMC.",
+    "answer": "The minimum investment amount for ICICI Prudential Focused Equity Fund is \u20b95,000 for lump sum investments and \u20b9500 for SIP investments. This is the minimum amount required to initiate an investment in the scheme. Additional investments can be made in multiples of Re 1. Last updated from sources: ICICI Prudential AMC.",
     "source": "https://www.icicipruamc.com/"
   },
   {
@@ -115,8 +160,23 @@
     "source": "https://www.icicipruamc.com/"
   },
   {
+    "question": "What is the benchmark for ICICI Prudential Focused Equity Fund?",
+    "answer": "ICICI Prudential Focused Equity Fund is benchmarked against the NIFTY 500 Total Return Index. The fund aims to provide returns that closely correspond to the total return of the NIFTY 500 Index, subject to tracking errors. Last updated from sources: ICICI Prudential AMC.",
+    "source": "https://www.icicipruamc.com/"
+  },
+  {
+    "question": "What is the dividend yield of ICICI Prudential Focused Equity Fund?",
+    "answer": "ICICI Prudential Focused Equity Fund's dividend yield varies based on the dividend policies of the companies in its focused portfolio. The fund typically distributes dividends when its holdings declare them, with historical yields ranging from 1-3% annually. Last updated from sources: ICICI Prudential AMC.",
+    "source": "https://www.icicipruamc.com/"
+  },
+  {
+    "question": "What is the portfolio turnover ratio for ICICI Prudential Focused Equity Fund?",
+    "answer": "The portfolio turnover ratio for ICICI Prudential Focused Equity Fund typically ranges between 40-70% annually, reflecting an active management approach with more frequent adjustments to maintain the focused portfolio. Last updated from sources: ICICI Prudential AMC.",
+    "source": "https://www.icicipruamc.com/"
+  },
+  {
     "question": "What is the minimum SIP amount for ICICI Prudential schemes?",
-    "answer": "The minimum SIP amount for most ICICI Prudential mutual fund schemes is ₹500 per month. However, this may vary by scheme. For ICICI Prudential ELSS Tax Saver Fund, the minimum SIP amount is ₹500. Investors can choose weekly, monthly, quarterly, or annual SIP frequencies. Last updated from sources: ICICI Prudential AMC.",
+    "answer": "The minimum SIP amount for most ICICI Prudential mutual fund schemes is \u20b9500 per month. However, this may vary by scheme. For ICICI Prudential ELSS Tax Saver Fund, the minimum SIP amount is \u20b9500. Investors can choose weekly, monthly, quarterly, or annual SIP frequencies. Last updated from sources: ICICI Prudential AMC.",
     "source": "https://www.icicipruamc.com/blob/downloads/Application-Forms/Common%20Application%20Form.pdf"
   },
   {
@@ -136,7 +196,7 @@
   },
   {
     "question": "What is the minimum SIP amount for mutual funds?",
-    "answer": "The minimum SIP amount varies by AMC and scheme, but typically starts as low as ₹500 per month. Many AMCs offer flexibility to increase or decrease SIP amounts based on investor needs. SIP allows investors to invest fixed amounts regularly, enabling rupee cost averaging and disciplined investing. Last updated from sources: AMFI India",
+    "answer": "The minimum SIP amount varies by AMC and scheme, but typically starts as low as \u20b9500 per month. Many AMCs offer flexibility to increase or decrease SIP amounts based on investor needs. SIP allows investors to invest fixed amounts regularly, enabling rupee cost averaging and disciplined investing. Last updated from sources: AMFI India",
     "source": "https://portal.amfiindia.com/spages/129.pdf"
   },
   {
@@ -146,7 +206,32 @@
   },
   {
     "question": "What is capital gains statement in mutual funds?",
-    "answer": "Capital gains statement shows profits earned from selling mutual fund units. Short-term capital gains (STCG) apply for holdings less than 1 year for debt funds and less than 12 months for equity funds. Long-term capital gains (LTCG) apply for longer holdings. Equity funds have 10% LTCG tax (without indexation) exceeding ₹1 lakh annually, while debt funds have 20% LTCG with indexation benefit. Last updated from sources: AMFI India",
+    "answer": "Capital gains statement shows profits earned from selling mutual fund units. Short-term capital gains (STCG) apply for holdings less than 1 year for debt funds and less than 12 months for equity funds. Long-term capital gains (LTCG) apply for longer holdings. Equity funds have 10% LTCG tax (without indexation) exceeding \u20b91 lakh annually, while debt funds have 20% LTCG with indexation benefit. Last updated from sources: AMFI India",
     "source": "https://portal.amfiindia.com/spages/129.pdf"
+  },
+  {
+    "question": "What is Net Asset Value (NAV) in mutual funds?",
+    "answer": "Net Asset Value (NAV) represents the per unit market value of a mutual fund scheme. It is calculated by dividing the difference between the firm's total assets and liabilities by the number of outstanding units in the fund. NAV changes daily based on the market value of the securities held by the scheme. Last updated from sources: AMFI India",
+    "source": "https://portal.amfiindia.com/spages/129.pdf"
+  },
+  {
+    "question": "What are the different types of mutual funds?",
+    "answer": "Mutual funds are broadly classified into: 1) Equity Funds (invest primarily in stocks), 2) Debt Funds (invest in fixed income securities), 3) Hybrid Funds (invest in both equity and debt), 4) Solution-Oriented Funds (target specific goals like retirement or children's education). Each type has sub-categories based on investment objectives and risk profiles. Last updated from sources: SEBI",
+    "source": "https://portal.amfiindia.com/spages/712.pdf"
+  },
+  {
+    "question": "What is the difference between SIP and lump sum investment?",
+    "answer": "SIP (Systematic Investment Plan) allows investors to invest a fixed amount regularly (weekly, monthly, quarterly) regardless of market conditions, enabling rupee cost averaging. Lump sum investment involves investing the entire amount at one go when the investor has the money available. SIP helps in disciplined investing and reduces the impact of market volatility. Last updated from sources: AMFI India",
+    "source": "https://portal.amfiindia.com/spages/129.pdf"
+  },
+  {
+    "question": "What is the difference between regular plan and direct plan?",
+    "answer": "Regular plan involves investing through intermediaries like brokers, distributors, or financial advisors who receive commissions. Direct plan involves investing directly with the AMC without any intermediary, resulting in lower expense ratio and higher returns for investors. Both plans invest in the same portfolio of securities. Last updated from sources: SEBI",
+    "source": "https://portal.amfiindia.com/spages/8130.pdf"
+  },
+  {
+    "question": "What is the difference between growth option and dividend option?",
+    "answer": "In growth option, the entire return is reinvested in the fund, leading to capital appreciation. In dividend option, a part of the earnings is distributed to investors periodically. However, with effect from April 1, 2021, dividend option has been replaced with 'Payout of Income Distribution cum Capital Withdrawal' (IDCW) option as per SEBI regulations. Last updated from sources: SEBI",
+    "source": "https://portal.amfiindia.com/spages/712.pdf"
   }
 ]

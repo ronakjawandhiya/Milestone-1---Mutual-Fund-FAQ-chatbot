@@ -68,85 +68,242 @@ st.set_page_config(
 # Custom CSS for better UI
 st.markdown("""
 <style>
+    /* Main background and text colors */
     .stApp {
-        background-color: #f5f7fa;
+        background: linear-gradient(135deg, #f5f7fa 0%, #e4edf9 100%);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
+    
+    /* Header styling */
     .main-header {
         background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-        padding: 2rem;
-        border-radius: 10px;
+        padding: 2.5rem;
+        border-radius: 15px;
         color: white;
         text-align: center;
         margin-bottom: 2rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     }
+    
+    .main-header h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+    
+    .main-header p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+    
+    /* Chat container */
     .chat-container {
         display: flex;
         flex-direction: column;
         max-height: 500px;
         overflow-y: auto;
-        padding: 1rem;
+        padding: 1.5rem;
         background-color: white;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        margin-bottom: 1rem;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        margin-bottom: 1.5rem;
+        border: 1px solid #e1e8ed;
     }
+    
+    /* Message styling */
     .message {
-        padding: 1rem;
+        padding: 1.2rem;
         margin-bottom: 1rem;
-        border-radius: 10px;
-        max-width: 80%;
-    }
-    .user-message {
-        background-color: #e3f2fd;
-        margin-left: auto;
-        text-align: right;
-    }
-    .assistant-message {
-        background-color: #f5f7fa;
-        margin-right: auto;
-    }
-    .answer-text {
-        font-size: 1.1rem;
+        border-radius: 12px;
+        max-width: 85%;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
         line-height: 1.6;
     }
+    
+    .user-message {
+        background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+        margin-left: auto;
+        border-bottom-right-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+    
+    .assistant-message {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        margin-right: auto;
+        border-bottom-left-radius: 5px;
+        border-top-left-radius: 5px;
+        border-left: 4px solid #2a5298;
+    }
+    
+    /* Answer text */
+    .answer-text {
+        font-size: 1.1rem;
+        color: #333;
+        margin-bottom: 1rem;
+    }
+    
+    /* Source link */
     .source-link {
         color: #1e3c72;
         text-decoration: none;
-        font-weight: bold;
+        font-weight: 600;
+        font-size: 0.95rem;
+        display: inline-block;
+        padding: 0.4rem 0.8rem;
+        background-color: rgba(30, 60, 114, 0.1);
+        border-radius: 20px;
+        transition: all 0.3s ease;
     }
+    
     .source-link:hover {
-        text-decoration: underline;
+        background-color: rgba(30, 60, 114, 0.2);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
+    
+    /* Example questions grid */
     .example-questions {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 1rem;
-        margin-top: 1rem;
+        margin-top: 1.5rem;
     }
+    
     .example-card {
-        background-color: #e3f2fd;
-        padding: 1rem;
-        border-radius: 8px;
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        padding: 1.2rem;
+        border-radius: 12px;
         cursor: pointer;
         transition: all 0.3s ease;
+        border: 1px solid #e1e8ed;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     }
+    
     .example-card:hover {
-        background-color: #bbdefb;
-        transform: translateY(-2px);
+        background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+        transform: translateY(-3px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        border-color: #bbdefb;
     }
+    
+    .example-card h4 {
+        margin: 0 0 0.5rem 0;
+        color: #1e3c72;
+        font-size: 1rem;
+    }
+    
+    .example-card p {
+        margin: 0;
+        color: #666;
+        font-size: 0.9rem;
+    }
+    
+    /* Disclaimer */
     .disclaimer {
-        background-color: #fff8e1;
-        padding: 1rem;
-        border-radius: 8px;
+        background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%);
+        padding: 1.5rem;
+        border-radius: 12px;
         border-left: 5px solid #ffc107;
         margin-top: 2rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
     }
+    
+    .disclaimer h4 {
+        margin-top: 0;
+        color: #e65100;
+    }
+    
+    /* Response container */
     .response-container {
-        background-color: white;
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        padding: 1.8rem;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        margin-top: 1.5rem;
+        border: 1px solid #e1e8ed;
+    }
+    
+    .response-container h3 {
+        color: #1e3c72;
+        margin-top: 0;
+        font-size: 1.4rem;
+    }
+    
+    /* Input styling */
+    .stTextInput > div > div > input {
+        padding: 1rem;
+        font-size: 1.1rem;
+        border-radius: 12px;
+        border: 2px solid #e1e8ed;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+    
+    .stTextInput > div > div > input:focus {
+        border-color: #2a5298;
+        box-shadow: 0 2px 10px rgba(42, 82, 152, 0.2);
+    }
+    
+    /* Sidebar styling */
+    [data-testid=stSidebar] {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border-right: 1px solid #e1e8ed;
+    }
+    
+    .sidebar-header {
+        text-align: center;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border-bottom: 1px solid #e1e8ed;
+    }
+    
+    .sidebar-header h3 {
+        color: #1e3c72;
+        margin: 0;
+    }
+    
+    /* Status indicators */
+    .status-indicator {
+        display: inline-block;
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 600;
+    }
+    
+    .status-success {
+        background-color: rgba(40, 167, 69, 0.2);
+        color: #28a745;
+    }
+    
+    /* Footer */
+    .footer {
+        text-align: center;
         padding: 1.5rem;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        margin-top: 1rem;
+        color: #6c757d;
+        font-size: 0.9rem;
+        margin-top: 2rem;
+        border-top: 1px solid #e1e8ed;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .main-header {
+            padding: 1.5rem;
+        }
+        
+        .main-header h1 {
+            font-size: 2rem;
+        }
+        
+        .example-questions {
+            grid-template-columns: 1fr;
+        }
+        
+        .message {
+            max-width: 95%;
+        }
     }
 </style>
 """, unsafe_allow_html=True)
@@ -166,25 +323,49 @@ with col1:
     user_question = st.text_input("Ask a question about mutual funds:", placeholder="e.g., What is the expense ratio of ICICI Prudential ELSS Tax Saver Fund?")
     
     # Example questions
-    st.markdown("### 💡 Example Questions")
+    st.markdown("### 💡 Popular Questions")
     example_questions = [
-        "What is the expense ratio of ICICI Prudential ELSS Tax Saver Fund?",
-        "What is the lock-in period for ICICI Prudential ELSS Tax Saver Fund?",
-        "What is the minimum SIP amount for ICICI Prudential schemes?",
-        "What is the exit load for ICICI Prudential Large Cap Fund?",
-        "What is the riskometer rating for ICICI Prudential Multi-Asset Fund?",
-        "How to download capital gains statement from ICICI Prudential?",
-        "What is the benchmark for ICICI Prudential Bluechip Fund?",
-        "What is the minimum investment amount for ICICI Prudential Focused Equity Fund?"
+        {
+            "question": "What is the expense ratio of ICICI Prudential ELSS Tax Saver Fund?",
+            "category": "Expense Ratio"
+        },
+        {
+            "question": "What is the lock-in period for ICICI Prudential ELSS Tax Saver Fund?",
+            "category": "Lock-in Period"
+        },
+        {
+            "question": "What is the minimum SIP amount for ICICI Prudential schemes?",
+            "category": "SIP Investment"
+        },
+        {
+            "question": "What is the exit load for ICICI Prudential Large Cap Fund?",
+            "category": "Exit Load"
+        },
+        {
+            "question": "What is the riskometer rating for ICICI Prudential Multi-Asset Fund?",
+            "category": "Risk Rating"
+        },
+        {
+            "question": "How to download capital gains statement from ICICI Prudential?",
+            "category": "Account Services"
+        },
+        {
+            "question": "What is the benchmark for ICICI Prudential Bluechip Fund?",
+            "category": "Benchmark"
+        },
+        {
+            "question": "What is the minimum investment amount for ICICI Prudential Focused Equity Fund?",
+            "category": "Investment Amount"
+        }
     ]
     
     # Display example questions in a grid
     st.markdown("<div class='example-questions'>", unsafe_allow_html=True)
     cols = st.columns(4)
-    for i, question in enumerate(example_questions):
+    for i, example in enumerate(example_questions):
         with cols[i % 4]:
-            if st.button(question, key=f"example_{i}", use_container_width=True):
-                user_question = question
+            if st.button(example["question"], key=f"example_{i}", use_container_width=True):
+                user_question = example["question"]
     st.markdown("</div>", unsafe_allow_html=True)
     
     # Process the question if submitted
@@ -204,7 +385,7 @@ with col1:
     
     # Display chat history
     if st.session_state.chat_history:
-        st.markdown("### 💬 Chat History")
+        st.markdown("### 💬 Conversation History")
         st.markdown("<div class='chat-container'>", unsafe_allow_html=True)
         for role, content in st.session_state.chat_history[-6:]:  # Show last 3 exchanges
             if role == "user":
@@ -215,7 +396,7 @@ with col1:
 
 with col2:
     # Sidebar content
-    st.header("About this Assistant")
+    st.markdown("<div class='sidebar-header'><h3>ℹ️ About</h3></div>", unsafe_allow_html=True)
     st.markdown("""
     This FAQ assistant provides factual information about:
     - ICICI Prudential mutual funds
@@ -228,16 +409,29 @@ with col2:
     
     st.markdown("---")
     
-    st.markdown("### ℹ️ Important Note")
+    st.markdown("### 🎯 Key Features")
     st.markdown("""
-    - Facts-only. No investment advice.
-    - For personalized advice, consult a certified financial advisor.
+    - ✅ Fact-based answers only
+    - 🔗 Verified sources for all information
+    - 💰 Covers all major mutual fund concepts
+    - 📱 Mobile responsive design
+    - 🛡️ No investment advice (opinion filtering)
     """)
     
-    # Health check info
     st.markdown("---")
-    st.markdown("### 📊 System Status")
-    st.success(f"FAQ Database: {len(faq_data)} entries loaded")
+    st.markdown("### 📚 Fund Categories")
+    fund_categories = [
+        "📈 Equity Funds",
+        "📊 Hybrid Funds", 
+        "💵 Debt Funds",
+        "🛡️ Solution Oriented"
+    ]
+    
+    for category in fund_categories:
+        st.markdown(f"- {category}")
 
 # Disclaimer
 st.markdown("<div class='disclaimer'><h4>⚠️ Disclaimer</h4><p>This assistant provides factual information about mutual funds based on official sources. It does not provide investment advice. For personalized investment recommendations, please consult a certified financial advisor.</p></div>", unsafe_allow_html=True)
+
+# Footer
+st.markdown("<div class='footer'><p>Built with ❤️ for mutual fund investors | Data sourced from ICICI Prudential AMC, AMFI & SEBI</p></div>", unsafe_allow_html=True)
