@@ -1,13 +1,17 @@
 import streamlit as st
 import json
 import re
+from vector_db import search_similar_questions, initialize_vector_db
 
 # Load FAQ data
 with open('mf_faq_data.json', 'r') as f:
     faq_data = json.load(f)
 
+# Initialize vector database
+initialize_vector_db()
+
 def find_relevant_faq(question):
-    """Find the most relevant FAQ entry for a given question"""
+    """Find the most relevant FAQ entry for a given question using RAG"""
     question_lower = question.lower()
     
     # Check for opinionated/portfolio questions and refuse politely
@@ -26,13 +30,15 @@ def find_relevant_faq(question):
                 "source": "https://www.amfiindia.com/investor-corner/investor-education"
             }
     
-    # First try exact matching
-    for entry in faq_data:
-        if question_lower in entry['question'].lower() or \
-           entry['question'].lower() in question_lower:
-            return entry
+    # Use vector database to find similar questions
+    try:
+        similar_questions = search_similar_questions(question, k=1)
+        if similar_questions and similar_questions[0]['distance'] < 1.0:  # Threshold for similarity
+            return similar_questions[0]
+    except Exception as e:
+        print(f"Error in vector search: {e}")
     
-    # Try keyword matching with ICICI Prudential focus
+    # Fallback to keyword matching with ICICI Prudential focus
     keywords = question_lower.split()
     best_match = None
     best_score = 0
@@ -57,6 +63,38 @@ def find_relevant_faq(question):
     
     # Return best match if found, otherwise first entry
     return best_match if best_match else (faq_data[0] if faq_data else {"error": "No data available"})
+
+def format_table_with_colors(table_content):
+    """Format table content with color coding for positive and negative numbers"""
+    lines = table_content.split('\n')
+    formatted_lines = []
+    
+    for i, line in enumerate(lines):
+        if i >= 2 and line.strip():  # Skip headers and process data rows
+            # Split by tabs to get individual cells
+            cells = line.split('\t')
+            if len(cells) >= 5:
+                # Color code the last column (Change %)
+                change_cell = cells[4]
+                # Extract numeric value
+                change_value = re.search(r'(-?\d+\.?\d*)', change_cell)
+                if change_value:
+                    try:
+                        value = float(change_value.group(1))
+                        if value > 0:
+                            # Green for positive values
+                            cells[4] = f"<span style='color: green; font-weight: bold;'>{change_cell}</span>"
+                        elif value < 0:
+                            # Red for negative values
+                            cells[4] = f"<span style='color: red; font-weight: bold;'>{change_cell}</span>"
+                    except ValueError:
+                        # If conversion fails, leave as is
+                        pass
+                # Rejoin the cells
+                line = '\t'.join(cells)
+        formatted_lines.append(line)
+    
+    return '\n'.join(formatted_lines)
 
 # Streamlit app
 st.set_page_config(
@@ -142,6 +180,7 @@ st.markdown("""
         font-size: 1.1rem;
         color: #333;
         margin-bottom: 1rem;
+        white-space: pre-wrap; /* Preserve whitespace and line breaks */
     }
     
     /* Source link */
@@ -381,7 +420,28 @@ with col1:
     if user_question:
         result = find_relevant_faq(user_question)
         st.markdown("### 📤 Response")
-        st.markdown(f"<div class='response-container'><h3>{result['question']}</h3><div class='answer-text'>{result['answer']}</div><br><a href='{result['source']}' class='source-link' target='_blank'>🔗 Source: {result['source']}</a></div>", unsafe_allow_html=True)
+        
+        # Format the answer text to preserve whitespace and handle code blocks
+        answer_text = result['answer']
+        if '```' in answer_text:
+            # Handle code blocks
+            parts = answer_text.split('```')
+            formatted_answer = ""
+            for i, part in enumerate(parts):
+                if i % 2 == 0:
+                    # Regular text
+                    formatted_answer += part
+                else:
+                    # Code block - check if it's a table and format with colors
+                    if "Company Name" in part and "As on Date" in part:
+                        formatted_table = format_table_with_colors(part)
+                        formatted_answer += f"<pre style='background-color: #f8f9fa; padding: 1rem; border-radius: 8px; overflow-x: auto; white-space: pre;'>{formatted_table}</pre>"
+                    else:
+                        formatted_answer += f"<pre style='background-color: #f8f9fa; padding: 1rem; border-radius: 8px; overflow-x: auto;'>{part}</pre>"
+            st.markdown(f"<div class='response-container'><h3>{result['question']}</h3><div class='answer-text'>{formatted_answer}</div><br><a href='{result['source']}' class='source-link' target='_blank'>🔗 Source: {result['source']}</a></div>", unsafe_allow_html=True)
+        else:
+            # Regular text
+            st.markdown(f"<div class='response-container'><h3>{result['question']}</h3><div class='answer-text'>{answer_text}</div><br><a href='{result['source']}' class='source-link' target='_blank'>🔗 Source: {result['source']}</a></div>", unsafe_allow_html=True)
     
     # Display chat history
     if st.session_state.chat_history:
@@ -391,7 +451,27 @@ with col1:
             if role == "user":
                 st.markdown(f"<div class='message user-message'><strong>You:</strong><br>{content}</div>", unsafe_allow_html=True)
             else:
-                st.markdown(f"<div class='message assistant-message'><strong>Assistant:</strong><br><div class='answer-text'>{content['answer']}</div><br><a href='{content['source']}' class='source-link' target='_blank'>🔗 Source: {content['source']}</a></div>", unsafe_allow_html=True)
+                # Format the answer text to preserve whitespace and handle code blocks
+                answer_text = content['answer']
+                if '```' in answer_text:
+                    # Handle code blocks
+                    parts = answer_text.split('```')
+                    formatted_answer = ""
+                    for i, part in enumerate(parts):
+                        if i % 2 == 0:
+                            # Regular text
+                            formatted_answer += part
+                        else:
+                            # Code block - check if it's a table and format with colors
+                            if "Company Name" in part and "As on Date" in part:
+                                formatted_table = format_table_with_colors(part)
+                                formatted_answer += f"<pre style='background-color: #f8f9fa; padding: 1rem; border-radius: 8px; overflow-x: auto; white-space: pre;'>{formatted_table}</pre>"
+                            else:
+                                formatted_answer += f"<pre style='background-color: #f8f9fa; padding: 1rem; border-radius: 8px; overflow-x: auto;'>{part}</pre>"
+                    st.markdown(f"<div class='message assistant-message'><strong>Assistant:</strong><br><div class='answer-text'>{formatted_answer}</div><br><a href='{content['source']}' class='source-link' target='_blank'>🔗 Source: {content['source']}</a></div>", unsafe_allow_html=True)
+                else:
+                    # Regular text
+                    st.markdown(f"<div class='message assistant-message'><strong>Assistant:</strong><br><div class='answer-text'>{answer_text}</div><br><a href='{content['source']}' class='source-link' target='_blank'>🔗 Source: {content['source']}</a></div>", unsafe_allow_html=True)
         st.markdown("</div>", unsafe_allow_html=True)
 
 with col2:
